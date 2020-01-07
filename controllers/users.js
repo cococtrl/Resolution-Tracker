@@ -7,8 +7,8 @@ module.exports = {
 };
 
 function index(req,res){
-    User.find({}, function(err, user){
-        res.render('resolutions/index',{
+    User.find({}, function(err, users){
+        res.render('users/index',{
             users,
             user: req.user });
     });
@@ -17,7 +17,7 @@ function index(req,res){
 function addRes(req,res){
     req.user.resolutions.push(req.body);
     req.user.save(function(err){
-        res.redirect('/resolutions')
+        res.redirect('/users')
     });
 }
 

@@ -4,12 +4,12 @@ const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 
-const indexRouter = require('./routes/index');
-const userRoutes = require('./routes/users'); 
-
 require('dotenv').config();
 
 const app = express();
+
+const indexRouter = require('./routes/index');
+const userRoutes = require('./routes/users'); 
 
 app.set('view engine', 'ejs');
 
