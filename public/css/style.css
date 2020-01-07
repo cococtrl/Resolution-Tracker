@@ -1,0 +1,43 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #F9E7E7;
+}
+ 
+.nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+  display: inline-block;
+  margin-right: 20px;
+}
+ 
+.nav a {
+  text-decoration: none;
+  color: #403D39;
+  display: block;
+  transition: .3s background-color;
+}
+ 
+.nav a:hover {
+  background-color: #EB5E28;
+}
+ 
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+
+header{
+  color: #252422;
+}
