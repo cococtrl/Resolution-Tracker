@@ -10,7 +10,8 @@
 <body>
       <nav class="nav">
         <ol>
-          <li><a href="/users">All Resolutions</a></li>
+          <li><a href="/resolutions">All Resolutions</a></li>
+          <li><a href="/resolutions/new">New Resolution</a></li>
           <li>
             <% if (user) { %>
                 <a href="/logout">Log Out</a>
@@ -21,28 +22,19 @@
       </nav>
       <main>
         <div>
-          <div id="students">
+          <div id="users">
             <% users.forEach(function(student) { %>
               <div>
                 <div>
                   <div>
-                    <span>
                       <span><%= user.name %></span>
-                    </span>
                   </div>
                   <ul>
                     <% user.resolutions.forEach(function(resolution) { %>
-                      <li><%= resolution.text %></li>
+                      <li><%= resolution.text %>
+                      <a href="/resolutions/<%=resolution._id%>">Details</a></li>
                     <% }) %>
                   </ul>
-                  <% if (user._id.equals(user && user._id)) { %>
-                    <div>
-                      <form action="/resolutions" method="POST">
-                        <input type="text" name="text">
-                        <button type="submit">Add Resolution</button>
-                      </form>
-                    </div>
-                  <% } %>
                 </div>
               </div>
             <% }) %>

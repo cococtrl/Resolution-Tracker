@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Resolution Tracker</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <ol>
+          <li><a href="/resolutions">All Resolutions</a></li>
+          <li><a href="/resolutions/new">New Resolution</a></li>
+          <li>
+            <% if (user) { %>
+                <a href="/logout">Log Out</a>
+            <% } else { %>
+                <a href="/auth/google">Login with Google</a>
+            <% } %>
+          </li>
+      </nav>
+<section id="edit-page">
+    <form action="/resolutions/<%=resolution._id%>?_method=PUT" method="POST" autocomplete="off">
+        <input type="text" name="text" value="<%= resolution.text %>">
+        <button type="submit">Save Resolution</button>    
+    </form>
+
+    <div><%= resolution.text %></div>
+</section>
+</body>
+</html>

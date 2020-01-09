@@ -3,18 +3,20 @@ const port = 3000;
 const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
+const methodOverride = require('method-override');
 
 require('dotenv').config();
 
 const app = express();
 
 const indexRouter = require('./routes/index');
-const userRoutes = require('./routes/users'); 
+const resolutionRoutes = require('./routes/resolutions'); 
 
 app.set('view engine', 'ejs');
 
 require('./config/database');
 require('./config/passport');
+app.use(methodOverride('_method'));
 
 app.use(logger('dev'));
 app.use(express.static('public'));
@@ -32,7 +34,7 @@ app.use(passport.session());
 
 //mount routes
 app.use('/', indexRouter);
-app.use('/', userRoutes);
+app.use('/', resolutionRoutes);
 
 
 //express listen
