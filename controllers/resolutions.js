@@ -26,10 +26,9 @@ function edit(req,res){
 }
 
 function show(req,res){
-    User.findById(req.user._id, function(err, user){
-        const resolution = user.resolutions.id(req.params.id);
+        const resolution = req.user.resolutions.id(req.params.id);
         res.render('resolutions/show', {resolution, user: req.user});
-    });
+
 }
 
 function newRes(req,res){

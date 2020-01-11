@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
 
+const commentSchema = new mongoose.Schema({
+    content: String,
+}, {
+    timestamps: true
+});
+
 const resolutionSchema = new mongoose.Schema({
-    text: String
+    text: String,
+    comments: [commentSchema]
 }, {
     timestamps: true
 });

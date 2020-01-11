@@ -9,16 +9,13 @@
 </head>
 <body>
       <nav class="nav">
-        <ol>
-          <li><a href="/resolutions">All Resolutions</a></li>
-          <li><a href="/resolutions/new">New Resolution</a></li>
-          <li>
+          <a href="/resolutions">All Resolutions</a>
+          <a href="/resolutions/new">New Resolution</a>
             <% if (user) { %>
-                <a href="/logout">Log Out</a>
+              <a class="logout" href="/logout">Log Out</a>
             <% } else { %>
-                <a href="/auth/google">Login with Google</a>
+              <a href="/auth/google">Login with Google</a>
             <% } %>
-          </li>
       </nav>
       <main>
         <div>
@@ -31,7 +28,7 @@
                   </div>
                   <ul>
                     <% user.resolutions.forEach(function(resolution) { %>
-                      <li><%= resolution.text %>
+                      <li><%= resolution.text %> </br>
                       <a href="/resolutions/<%=resolution._id%>">Details</a></li>
                     <% }) %>
                   </ul>

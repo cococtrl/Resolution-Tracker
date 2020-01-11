@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/resolutions', {
+mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost/resolutions', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true

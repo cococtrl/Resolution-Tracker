@@ -1,33 +1,41 @@
-*{
-  align-content: center;
+
+.home-page {
+  background-image: url("https://i.imgur.com/QCq76cp.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  margin-top: 40px;
+
 }
 body {
-  margin: 0;
+  margin-top: 0px;
   padding: 0;
   background: #F9E7E7;
 }
- 
-.nav ul {
-  list-style: none;
-  background-color: #444;
-  text-align: center;
-  padding: 0;
-  margin: 0;
+
+.nav-home {
+  display: flex;
+  justify-content: center;
 }
-.nav li {
+
+.nav-home a{
   font-size: 1.2em;
   line-height: 40px;
   height: 40px;
-  border-bottom: 1px solid #888;
   display: inline-block;
   margin-right: 20px;
-}
- 
-.nav a {
   text-decoration: none;
   color: #403D39;
-  display: block;
-  transition: .3s background-color;
+}
+
+.nav a {
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
+  margin-right: 20px;
+  text-decoration: none;
+  color: #403D39;
 }
  
 .nav a:hover {
@@ -40,6 +48,11 @@ body {
   cursor: default;
 }
 
-header{
-  color: #252422;
+.logout{
+  float: right;
+}
+
+main {
+  display: flex;
+  justify-content: center;
 }
