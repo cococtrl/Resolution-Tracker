@@ -5,8 +5,14 @@ module.exports = {
 };
 
 function create(req, res){
-    req.user.resolutions.pull(req.params.id);
-    req.user.save(function(err){
-        res.redirect(`/resolutions/${req.params.id}`)
-    });
+    // req.user.resolutions.push(req.body);
+    // req.user.save(function(err){
+    //     res.redirect(`/resolutions/${req.params.id}`)
+    // });
+    // console.log(req.body)
+        const resolution = req.user.resolutions.id(req.params.id);
+        resolution.comments.push(req.body);
+        req.user.save(function(err){
+            res.redirect(`/resolutions/${req.params.id}`);
+        });
 }

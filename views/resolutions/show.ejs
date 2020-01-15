@@ -18,25 +18,27 @@
                 <a href="/auth/google">Login with Google</a>
             <% } %>
       </nav>
-<section id="show-page">
-    <div><%= resolution.text %></div>
-    <form action="/resolutions/<%=resolution._id%>?_method=DELETE" class="delete-form" method="POST">
-    <button type="submit">Delete this resolution</button></form>
-</section>
-
-<% if (resolution.comments.length) { %>
-    <div>Review</div>
-      <div>
-        <% var total = 0 %>
-        <% resolution.comments.forEach(function(r) { %>
-
-        <% }); %>
-<div><%= (total / movie.reviews.length).toFixed(1) %></div>
-        
-        </div>
-  <% } else { %>
-    <h5>No Comments Yet</h5>
-  <% } %>
+<section
+ class="oneRes">
+    <h2><%= resolution.text %></h3>
+    <form action="/resolutions/<%=resolution._id%>?_method=DELETE" method="POST">
+    <button class="delete" type="submit">Delete this resolution?</button></form>
+    
+    <form action="/resolutions/<%=resolution._id%>/" method="POST">
+      <textarea name="content"></textarea>
+      <button type="submit">Add Comment</button>    
+  </form>
   
+    <% if (resolution.comments.length) { %>
+    <div>Comments</div>
+      <div>
+        <% resolution.comments.forEach(function(r) { %>
+          <p><%= r.content %></p>
+        <% }); %>
+      </div>
+  <% } else { %>
+    <h5>No comments yet</h5>
+  <% } %>
+</section>
 </body>
 </html>

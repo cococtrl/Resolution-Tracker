@@ -9,22 +9,21 @@
 </head>
 <body>
     <nav class="nav">
-          <a href="/resolutions">All Resolutions</a>
-          <a href="/resolutions/new">New Resolution</a>
+        <a href="/resolutions/<%=resolution._id%>">< Back</a>
+        <a href="/resolutions">All Resolutions</a>
+        <a href="/resolutions/new">New Resolution</a>
             <% if (user) { %>
                 <a class="logout" href="/logout">Log Out</a>
             <% } else { %>
                 <a href="/auth/google">Login with Google</a>
             <% } %>
       </nav>
-<section id="edit-page">
-    <div><%= resolution.text %></div>
+<section class="edit">
+    <h2><%= resolution.text %></h2>
     <form action="/resolutions/<%=resolution._id%>?_method=PUT" method="POST" autocomplete="off">
         <input type="text" name="text" value="<%= resolution.text %>">
         <button type="submit">Save Resolution</button>    
     </form>
-    <textarea name="content"></textarea>
-    <input type="submit" value="Add Comment">
 </section>
 </body>
 </html>

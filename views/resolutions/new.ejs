@@ -10,15 +10,15 @@
 <body>
     <nav class="nav">
          <a href="/resolutions">All Resolutions</a>
-          <a href="/resolutions/new">New Resolution</a>
             <% if (user) { %>
                 <a class="logout" href="/logout">Log Out</a>
             <% } else { %>
                 <a href="/auth/google">Login with Google</a>
             <% } %>
       </nav>
+      <h2 class='new'>Add a New Resolution</h2>
       <% if (user._id.equals(user && user._id)) { %>
-        <div>
+        <div class="new">
           <form action="/resolutions" method="POST">
             <input type="text" name="text">
             <button type="submit">Add Resolution</button>

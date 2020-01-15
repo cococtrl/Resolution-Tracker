@@ -21,10 +21,9 @@
         <div>
           <div id="users">
             <% users.forEach(function(student) { %>
-              <div>
-                <div>
+                <div class="resList">
                   <div>
-                      <span><%= user.name %></span>
+                      <span>Resolutions by <%= user.name %></span>
                   </div>
                   <ul>
                     <% user.resolutions.forEach(function(resolution) { %>
@@ -32,8 +31,7 @@
                       <a href="/resolutions/<%=resolution._id%>">Details</a></li>
                     <% }) %>
                   </ul>
-                </div>
-              </div>
+                </div cl>
             <% }) %>
           </div>
         </div>

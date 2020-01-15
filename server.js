@@ -1,5 +1,5 @@
 const express = require('express');
-const port = 3000;
+const port = process.env.PORT || 3000;
 const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
@@ -11,6 +11,7 @@ const app = express();
 
 const indexRouter = require('./routes/index');
 const resolutionRoutes = require('./routes/resolutions'); 
+const commentRoutes = require('./routes/comments');
 
 app.set('view engine', 'ejs');
 
@@ -35,6 +36,7 @@ app.use(passport.session());
 //mount routes
 app.use('/', indexRouter);
 app.use('/', resolutionRoutes);
+app.use('/', commentRoutes);
 
 
 //express listen
