@@ -14,6 +14,7 @@
           <a href="/resolutions/<%=resolution._id%>/edit">Edit This Resolution</a>
             <% if (user) { %>
                 <a class="logout" href="/logout">Log Out</a>
+                <a class="logout" href="/resolutions"><%= user.name %></a>
             <% } else { %>
                 <a href="/auth/google">Login with Google</a>
             <% } %>
