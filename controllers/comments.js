@@ -7,7 +7,7 @@ module.exports = {
 
 function delNote(req,res){
     const resolution = req.user.resolutions.id(req.params.id);
-    resolution.comments.pull(req.body);
+    resolution.comments.pop(req.body);
     req.user.save(function(err){
         res.redirect(`/resolutions/${req.params.id}`);
     });
