@@ -48,6 +48,17 @@ body {
   cursor: default;
 }
 
+.back span:before {
+  content: '\003c''\0020';
+  left: -30px;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.back:hover span:before {
+  opacity: 1;
+}
+
 .logout {
   float: right;
 }
@@ -77,11 +88,26 @@ main {
 }
 .delete {
   margin-top: 10px;
+  margin-bottom: 10px;
   padding: 10px;
 }
 
 .notes {
+  margin-top: 15px;
   border-top: 5px solid black;
+  padding: 25px;
+}
+
+.notesTextBox {
+  width: 100%;
+}
+
+.notesButton {
+  width: 50%;
+}
+
+.notesButton:hover {
+
 }
 
 .edit {
@@ -98,4 +124,9 @@ main {
   text-align: center;
   padding: 10px;
   width: 500px;
+}
+
+.singleNote {
+  border: 1px solid black;
+  margin-bottom: 5px;
 }

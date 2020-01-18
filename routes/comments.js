@@ -3,5 +3,6 @@ const router = express.Router();
 const commentsCtrl = require('../controllers/comments');
 
 router.post('/resolutions/:id', commentsCtrl.create);
+router.delete('/resolutions/:id', commentsCtrl.delNote);
 
 module.exports = router;

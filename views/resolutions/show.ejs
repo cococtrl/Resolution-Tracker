@@ -18,27 +18,53 @@
                 <a href="/auth/google">Login with Google</a>
             <% } %>
       </nav>
-<section
- class="oneRes">
+<section class="oneRes">
+    <p id="countdown"></p>
     <h2><%= resolution.text %></h3>
     <form action="/resolutions/<%=resolution._id%>?_method=DELETE" method="POST">
     <button class="delete" type="submit">Delete this resolution?</button></form>
-    
-    <form action="/resolutions/<%=resolution._id%>/" method="POST">
-      <textarea name="content"></textarea>
-      <button type="submit">Add Comment</button>    
+
+    <form class="notes" action="/resolutions/<%=resolution._id%>/" method="POST">
+      <p>Track Your Progress</p>
+      <textarea class="notesTextBox" name="content"></textarea>
+      <button class="notesButton" type="submit">Add Note</button>    
   </form>
-  
     <% if (resolution.comments.length) { %>
-    <div>Comments</div>
-      <div>
+    <h3>Notes</h3>
+      <div class="allNotes">
         <% resolution.comments.forEach(function(r) { %>
+        <div class="singleNote">
+          <p>
+            <%= r.createdAt %>
+            <!-- <%= r.createdAt.getDate(); %>,&#160;
+            <%= r.createdAt.getFullYear(); %> -->
           <p><%= r.content %></p>
+          <form action="/resolutions/<%=resolution._id%>.comments?_method=DELETE" method="POST">
+            <button class="delete" type="submit">Delete this note?</button></form>
+        </div>
         <% }); %>
       </div>
   <% } else { %>
-    <h5>No comments yet</h5>
+    <h5>No Notes yet</h5>
   <% } %>
 </section>
+<script>
+const countdownDate = new Date("Jan 1, 2021 00:00:00").getTime();
+const run = setInterval(function(){
+  const now = new Date().getTime();
+  const difference = countdownDate - now;
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML = "You have " + days + " days " + hours + " hours " + minutes + " minutes and " + seconds + " seconds to";
+
+  if(distance < 0) {
+    clearInterval(run);
+    document.getElementById("countdown").innerHTML = "Happy New Year! Did you reach your goal?"
+  }
+}, 1000);
+</script>
 </body>
 </html>

@@ -1,16 +1,20 @@
 const User = require('../models/user');
 
 module.exports = {
-    create
+    create,
+    delNote
 };
 
+function delNote(req,res){
+    const resolution = req.user.resolutions.id(req.params.id);
+    resolution.comments.pull(req.body);
+    req.user.save(function(err){
+        res.redirect(`/resolutions/${req.params.id}`);
+    });
+}
+
 function create(req, res){
-    // req.user.resolutions.push(req.body);
-    // req.user.save(function(err){
-    //     res.redirect(`/resolutions/${req.params.id}`)
-    // });
-    // console.log(req.body)
-        const resolution = req.user.resolutions.id(req.params.id);
+    const resolution = req.user.resolutions.id(req.params.id);
         resolution.comments.push(req.body);
         req.user.save(function(err){
             res.redirect(`/resolutions/${req.params.id}`);
