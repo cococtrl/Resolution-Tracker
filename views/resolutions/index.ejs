@@ -13,6 +13,7 @@
           <a href="/resolutions/new">New Resolution</a>
             <% if (loggedInUser) { %>
               <a class="logout" href="/logout">Log Out</a>
+              <a class="logout" href="/resolutions"><%= loggedInUser.name %></a>
             <% } else { %>
               <a href="/auth/google">Login with Google</a>
             <% } %>
