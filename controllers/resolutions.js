@@ -39,7 +39,7 @@ function index(req,res){
     User.find({}, function(err, users){
         res.render('resolutions/index',{
             users,
-            user: req.user });
+            loggedInUser: req.user });
     });
 }
 
